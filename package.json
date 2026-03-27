@@ -1,0 +1,8 @@
+{
+  "name": "fake-news-detector",
+  "version": "1.0.0",
+  "description": "Root package.json to redirect npm run dev to the frontend folder",
+  "scripts": {
+    "dev": "cd frontend && npm run dev"
+  }
+}
