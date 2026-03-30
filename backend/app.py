@@ -3,7 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pickle
 import os
+from dotenv import load_dotenv
 import uvicorn
+
+load_dotenv()
 import requests
 from bs4 import BeautifulSoup
 from duckduckgo_search import DDGS
@@ -11,9 +14,17 @@ from duckduckgo_search import DDGS
 app = FastAPI(title="Fake News & Phishing Detection API")
 
 # Setup CORS
+FRONTEND_URL = os.environ.get("FRONTEND_URL", "https://fake-detector-sigma.vercel.app")
+origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    FRONTEND_URL,
+    "https://fake-detector-sigma.vercel.app" # hardcoded fallback
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -178,4 +189,5 @@ def analyze_url(input_data: UrlInput):
         raise HTTPException(status_code=500, detail=f"Failed to analyze URL: {str(e)}")
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("app:app", host="0.0.0.0", port=port, reload=True)

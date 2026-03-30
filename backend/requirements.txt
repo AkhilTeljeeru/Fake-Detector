@@ -7,3 +7,4 @@ pydantic
 beautifulsoup4
 requests
 duckduckgo-search
+python-dotenv

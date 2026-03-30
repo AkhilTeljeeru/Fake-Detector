@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './index.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
 function App() {
   const [activeTab, setActiveTab] = useState('manual'); // 'manual' | 'search'
   
@@ -29,7 +31,7 @@ function App() {
     const endpoint = type === 'news' ? '/predict-news' : '/predict-phishing';
     
     try {
-      const response = await fetch(`http://localhost:8000${endpoint}`, {
+      const response = await fetch(`${API_URL}${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +74,7 @@ function App() {
     setResult(null);
 
     try {
-      const response = await fetch(`http://localhost:8000/search-web`, {
+      const response = await fetch(`${API_URL}/search-web`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -99,7 +101,7 @@ function App() {
     setResult(null);
 
     try {
-      const response = await fetch(`http://localhost:8000/analyze-url`, {
+      const response = await fetch(`${API_URL}/analyze-url`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
