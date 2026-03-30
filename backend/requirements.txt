@@ -6,5 +6,5 @@ nltk
 pydantic
 beautifulsoup4
 requests
-duckduckgo-search
+ddgs
 python-dotenv

@@ -9,7 +9,7 @@ import uvicorn
 load_dotenv()
 import requests
 from bs4 import BeautifulSoup
-from duckduckgo_search import DDGS
+from ddgs import DDGS
 
 app = FastAPI(title="Fake News & Phishing Detection API")
 
@@ -129,9 +129,9 @@ def search_web(input_data: SearchInput):
         raise HTTPException(status_code=400, detail="Search query cannot be empty.")
         
     try:
-        ddgs = DDGS()
-        # Use ddgs.news to fetch article links (handles DDG's lenient anti-bot measures)
-        results = list(ddgs.news(input_data.query, max_results=5))
+        with DDGS() as ddgs:
+            # Use ddgs.news to fetch article links (handles DDG's lenient anti-bot measures)
+            results = list(ddgs.news(input_data.query, max_results=5))
         
         if not results:
              # DuckDuckGo rate limiting or empty
