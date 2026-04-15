@@ -1,4 +1,4 @@
-# 🛡️ AI Fake News & Phishing Detection System
+#  AI Fake News & Phishing Detection System
 
 A complete FULL-STACK AI Web Application to classify text into:
 1. Fake News vs. Real News
@@ -6,7 +6,7 @@ A complete FULL-STACK AI Web Application to classify text into:
 
 This system features a dark-themed React UI and a fast, scalable FastAPI backend powered by Scikit-Learn NLP models.
 
-## 🌟 Features
+##  Features
 - **Frontend**: React.js with a modern dark theme and dynamic status coloring.
 - **Backend API**: FastAPI with CORS enabled for seamless frontend-backend communication.
 - **Machine Learning**: 
@@ -22,7 +22,7 @@ This system features a dark-themed React UI and a fast, scalable FastAPI backend
 - **Machine Learning**: Scikit-Learn, Pandas, NLTK
 - **Storage**: Pickled models and vectorizers
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. Backend Setup
 Navigate to the backend folder, create a virtual environment, and install dependencies.
@@ -51,7 +51,7 @@ cd frontend
 npm install
 ```
 
-## 🏃 Run Instructions
+## Run Instructions
 
 ### Start Backend API
 From the `backend` folder with your virtual environment activated:
@@ -67,7 +67,7 @@ npm run dev
 ```
 Open the provided local URL (e.g., `http://localhost:5173`) in your browser to view the app!
 
-## 🧪 Test Cases
+## Test Cases
 ### Fake News Sample
 > "Alien spaceship found in Antarctica with ancient technology." -> **Fake News**
 
@@ -80,7 +80,7 @@ Open the provided local URL (e.g., `http://localhost:5173`) in your browser to v
 ### Legitimate Email Sample
 > "Hi John, just following up on our meeting tomorrow at 10 AM." -> **Legitimate**
 
-## 🌐 API Documentation
+## API Documentation
 - `POST /predict-news`
   - Body: `{ "text": "news content" }`
   - Returns: `{ "prediction": "Fake News", "confidence": 0.9854 }`
@@ -88,4 +88,3 @@ Open the provided local URL (e.g., `http://localhost:5173`) in your browser to v
   - Body: `{ "text": "email content" }`
   - Returns: `{ "prediction": "Phishing", "confidence": 0.9201 }`
 
-🚀 Happy coding!
